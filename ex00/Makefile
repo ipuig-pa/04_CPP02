@@ -2,9 +2,9 @@ COMPILER = c++
 
 CFLAGS = -Wall -Wextra -Werror -std=c++98
 
-NAME = zombie
+NAME = a.out
 
-SRC = Zombie.cpp randomChump.cpp newZombie.cpp main.cpp
+SRC = Fixed.cpp main.cpp
 OBJ = $(SRC:.cpp=.o)
 
 all: $(NAME)

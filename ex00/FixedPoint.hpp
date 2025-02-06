@@ -6,22 +6,22 @@
 /*   By: ipuig-pa <ipuig-pa@student.42heilbronn.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/21 12:56:33 by ipuig-pa          #+#    #+#             */
-/*   Updated: 2025/02/05 13:38:43 by ipuig-pa         ###   ########.fr       */
+/*   Updated: 2025/02/06 10:55:40 by ipuig-pa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef FXDPNT_HPP
-# define FXDPNT_HPP
+#ifndef FIXED_HPP
+# define FIXED_HPP
 # include <string>
 # include <iostream>
 
-class FixedPoint{
+class Fixed{
 
 public:
-	FixedPoint();
+	Fixed();
 
 	
-	~FixedPoint(void);
+	~Fixed(void);
 	int getRawBits( void ) const;
 	void setRawBits( int const raw );
 

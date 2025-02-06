@@ -6,10 +6,11 @@
 /*   By: ipuig-pa <ipuig-pa@student.42heilbronn.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/05 13:37:52 by ipuig-pa          #+#    #+#             */
-/*   Updated: 2025/02/05 13:38:24 by ipuig-pa         ###   ########.fr       */
+/*   Updated: 2025/02/06 10:56:12 by ipuig-pa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include "Fixed.h"
 #include <iostream>
 
 int main( void ) {
