@@ -13,43 +13,39 @@
 #include "Fixed.hpp"
 
 Fixed::Fixed(void)
-	: _value(0), _fract_bits(8)
+	: _value(0)
 {
 	std::cout << "Default constructor called" << std::endl;
 }
 
-Fixed(const Fixed& other) 
+Fixed::Fixed(const Fixed& other) 
 {
 	std::cout << "Copy constructor called" << std::endl;
-	this->value = getRawBits();
-	// Copy members from other
+	this->_value = other.getRawBits();
 }
 
-Fixed& operator=(const Fixed& other) 
+Fixed& Fixed::operator=(const Fixed& other) 
 {
 	std::cout << "Copy assignment operator called" << std::endl;
-	if (this != &other) {  // Protect against self-assignment
-		// Clean up existing resources
-		// Copy members from other
-		this->value = getRawBits();
-	}
+	if (this != &other)
+		this->_value = other.getRawBits();
 	return *this;
 }
 
-~Fixed() 
+Fixed::~Fixed() 
 {
 	std::cout << "Destructor called" << std::endl;
-	// Clean up resources
 }
 
 
-int getRawBits( void ) const
+int Fixed::getRawBits( void ) const
 {
 	std::cout << "getRawBits member function called" << std::endl;
 	return (this->_value);
 }
 
-void setRawBits( int const raw )
+void Fixed::setRawBits( int const raw )
 {
 	std::cout << "setRawBits member function called" << std::endl;
+	this->_value = raw;
 }

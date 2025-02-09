@@ -10,7 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Fixed.h"
+#include "Fixed.hpp"
 #include <iostream>
 
 int main( void ) {
