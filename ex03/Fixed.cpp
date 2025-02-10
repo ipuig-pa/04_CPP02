@@ -6,7 +6,7 @@
 /*   By: ipuig-pa <ipuig-pa@student.42heilbronn.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/21 12:59:52 by ipuig-pa          #+#    #+#             */
-/*   Updated: 2025/02/10 16:25:37 by ipuig-pa         ###   ########.fr       */
+/*   Updated: 2025/02/10 16:25:08 by ipuig-pa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -109,4 +109,128 @@ int	ft_power(int base, int exp)
 		exp --;
 	}
 	return (res);
+}
+bool	Fixed::operator>(const Fixed &other) const
+{
+	return (this->getRawBits() > other.getRawBits());
+}
+
+bool	Fixed::operator<(const Fixed &other) const
+{
+	return (this->getRawBits() < other.getRawBits());
+}
+
+bool	Fixed::operator>=(const Fixed &other) const
+{
+	return (this->getRawBits() >= other.getRawBits());
+}
+
+bool	Fixed::operator<=(const Fixed &other) const
+{
+	return (this->getRawBits() <= other.getRawBits());
+}
+
+bool	Fixed::operator==(const Fixed &other) const
+{
+	return (this->getRawBits() == other.getRawBits());
+}
+
+bool	Fixed::operator!=(const Fixed &other) const
+{
+	return (this->getRawBits() != other.getRawBits());
+}
+
+Fixed	Fixed::operator+(const Fixed &other) const
+{
+	Fixed	result;
+	result.setRawBits(this->getRawBits() + other.getRawBits());
+	return (result);
+}
+
+Fixed	Fixed::operator-(const Fixed &other) const
+{
+	Fixed	result;
+	result.setRawBits(this->getRawBits() - other.getRawBits());
+	return (result);
+}
+
+Fixed	Fixed::operator*(const Fixed &other) const
+{
+	Fixed	result;
+	float	temp;
+
+	temp = this->toFloat() * other.toFloat();
+	result = Fixed(temp);
+	return (result);
+}
+
+Fixed	Fixed::operator/(const Fixed &other) const
+{
+	Fixed	result;
+	float	temp;
+
+	if (other.getRawBits() == 0)
+		std::cout << "Error: division by 0, result will be set to 0" << std::endl;
+	else
+	{
+		temp = this->toFloat() / other.toFloat();
+		result = Fixed(temp);
+	}
+	return (result);
+}
+
+Fixed	&Fixed::operator++()
+{
+	this->setRawBits(this->getRawBits() + 1);
+	return(*this);
+}
+
+Fixed	Fixed::operator++(int)
+{
+	Fixed	temp;
+	temp = *this;
+	this->setRawBits(this->getRawBits() + 1);
+	return(temp);
+}
+
+Fixed	&Fixed::operator--()
+{
+	this->setRawBits(this->getRawBits() - 1);
+	return(*this);
+}
+
+Fixed	Fixed::operator--(int)
+{
+	Fixed	temp;
+	temp = *this;
+	this->setRawBits(this->getRawBits() - 1);
+	return(temp);
+}
+
+Fixed	&Fixed::min(Fixed &a, Fixed &b)
+{
+	if (a.getRawBits()<b.getRawBits())
+		return (a);
+	return (b);
+}
+
+const Fixed	&Fixed::min(const Fixed &a, const Fixed &b)
+{
+	if (a.getRawBits()<b.getRawBits())
+		return (a);
+	return (b);
+}
+
+Fixed	&Fixed::max(Fixed &a, Fixed &b)
+{
+	if (a.getRawBits()>b.getRawBits())
+		return (a);
+	return (b);
+}
+
+const Fixed	&Fixed::max(const Fixed &a, const Fixed &b)
+{
+	if (a.getRawBits()>b.getRawBits())
+		return (a);
+	return (b);
 }
