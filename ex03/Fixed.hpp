@@ -6,7 +6,7 @@
 /*   By: ipuig-pa <ipuig-pa@student.42heilbronn.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/21 12:56:33 by ipuig-pa          #+#    #+#             */
-/*   Updated: 2025/02/10 15:57:56 by ipuig-pa         ###   ########.fr       */
+/*   Updated: 2025/02/11 11:03:43 by ipuig-pa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,6 +58,5 @@ private:
 };
 
 std::ostream 			&operator<<(std::ostream &os, const Fixed &fixed);
-int						ft_power(int base, int exp);
 
 #endif

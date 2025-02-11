@@ -6,7 +6,7 @@
 /*   By: ipuig-pa <ipuig-pa@student.42heilbronn.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/21 12:59:52 by ipuig-pa          #+#    #+#             */
-/*   Updated: 2025/02/10 16:25:37 by ipuig-pa         ###   ########.fr       */
+/*   Updated: 2025/02/11 11:29:31 by ipuig-pa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,36 +21,13 @@ Fixed::Fixed(void)
 Fixed::Fixed(const int value)
 {
 	std::cout << "Int constructor called" << std::endl;
-
-	if (value > ((ft_power(2, (static_cast<int>((sizeof(int))*8) - _fract_bits))) / 2) - 1)
-	{
-		std::cout << "Error: this number is too big to be stored as a fixed point, it will be fixed to the max boundary" << std::endl;
-		_value = (((ft_power(2, (static_cast<int>((sizeof(int))*8) - _fract_bits))) / 2) - 1) << _fract_bits;
-	}
-	else if (value < ((ft_power(2, (static_cast<int>((sizeof(int))*8) - _fract_bits))) / 2) * (-1))
-	{
-		std::cout << "Error: this number is too small to be stored as a fixed point, it will be fixed to the min boundary" << std::endl;
-		_value = (((ft_power(2, (static_cast<int>((sizeof(int))*8) - _fract_bits))) / 2) * (-1)) << _fract_bits;
-	}
-	else
-		_value = (value << _fract_bits);
+	_value = value << _fract_bits;
 }
 
 Fixed::Fixed(const float value)
 {
 	std::cout << "Float constructor called" << std::endl;
-	if (static_cast<int>(value) > ((ft_power(2, (static_cast<int>((sizeof(int))*8) - _fract_bits))) / 2) - 1)
-	{
-		std::cout << "Error: this number is too big to be stored as a fixed point, it will be fixed to the max boundary" << std::endl;
-		_value = (((ft_power(2, (static_cast<int>((sizeof(int))*8) - _fract_bits))) / 2) - 1) << _fract_bits;
-	}
-	else if (static_cast<int>(value) < ((ft_power(2, (static_cast<int>((sizeof(int))*8) - _fract_bits))) / 2) * (-1))
-	{
-		std::cout << "Error: this number is too small to be stored as a fixed point, it will be fixed to the min boundary" << std::endl;
-		_value = (((ft_power(2, (static_cast<int>((sizeof(int))*8) - _fract_bits))) / 2) * (-1)) << _fract_bits;
-	}
-	else
-		_value = roundf(value*ft_power(2, _fract_bits));
+	_value = roundf(value * (1 << _fract_bits));
 }
 
 Fixed::Fixed(const Fixed &other) 
@@ -63,7 +40,7 @@ Fixed &Fixed::operator=(const Fixed &other)
 {
 	std::cout << "Copy assignment operator called" << std::endl;
 	if (this != &other)
-		this->_value = other.getRawBits();
+		this->_value = other._value;
 	return (*this);
 }
 
@@ -84,7 +61,7 @@ void Fixed::setRawBits( int const raw )
 
 float Fixed::toFloat( void ) const
 {
-	return (static_cast<float>(this->_value / static_cast<float>(ft_power(2, _fract_bits))));
+	return (static_cast<float>(this->_value / static_cast<float>(1 << _fract_bits)));
 }
 
 int Fixed::toInt( void ) const
@@ -96,17 +73,4 @@ std::ostream &operator<<(std::ostream &os, const Fixed &fixed)
 {
 	os << fixed.toFloat();
 	return(os);
-}
-
-int	ft_power(int base, int exp)
-{
-	int	res;
-
-	res = 1;
-	while (exp > 0)
-	{
-		res = res * base;
-		exp --;
-	}
-	return (res);
 }

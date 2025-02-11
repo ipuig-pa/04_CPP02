@@ -6,37 +6,36 @@
 /*   By: ipuig-pa <ipuig-pa@student.42heilbronn.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/10 16:16:20 by ipuig-pa          #+#    #+#             */
-/*   Updated: 2025/02/10 17:56:01 by ipuig-pa         ###   ########.fr       */
+/*   Updated: 2025/02/11 10:36:54 by ipuig-pa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Point.hpp"
 
 Point::Point()
-	_x(0), _y(0)
+	: _x(0), _y(0)
 {
 }
 
 Point::Point(const float x, const float y)
-	_x(x), _y(y)
+	: _x(x), _y(y)
 {
 }
 
 Point::Point(const Point &other)
+	: _x(other._x), _y(other._y)
 {
 	*this = other;
 }
-Point &operator=(const Point &other)
+// Since _x and _y are const, they cannot be modified after initialization
+// This operator exists only to fulfill Orthodox Canonical Form requirements
+Point &Point::operator=(const Point &other)
 {
-	if (this != &other)
-	{
-		this->_x = other._x;
-		this->_y = other._y;
-	}
+	(void)other;
 	return(*this);
 }
 
-~Point(void)
+Point::~Point(void)
 {
 }
 

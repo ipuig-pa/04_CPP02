@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   FixedPoint.hpp                                     :+:      :+:    :+:   */
+/*   Fixed.hpp                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ipuig-pa <ipuig-pa@student.42heilbronn.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/21 12:56:33 by ipuig-pa          #+#    #+#             */
-/*   Updated: 2025/02/06 10:55:40 by ipuig-pa         ###   ########.fr       */
+/*   Updated: 2025/02/11 10:47:10 by ipuig-pa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,10 +18,10 @@
 class Fixed{
 
 public:
-	Fixed();
-	Fixed(const Fixed &other);
-	Fixed &operator=(const Fixed &other);
-	~Fixed(void);
+	Fixed(); //Default constructor
+	Fixed(const Fixed &other); //Copy constructor
+	Fixed &operator=(const Fixed &other); //Copy assignment operator
+	~Fixed(void); //Destructor
 	int getRawBits( void ) const;
 	void setRawBits( int const raw );
 
