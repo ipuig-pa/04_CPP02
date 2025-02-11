@@ -6,7 +6,7 @@
 /*   By: ipuig-pa <ipuig-pa@student.42heilbronn.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/05 13:37:52 by ipuig-pa          #+#    #+#             */
-/*   Updated: 2025/02/11 11:52:46 by ipuig-pa         ###   ########.fr       */
+/*   Updated: 2025/02/11 13:04:42 by ipuig-pa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,6 +23,8 @@ void runTest(int testNumber, Point const& a, Point const& b, Point const& c, Poi
 	std::cout << "inside the triangle";
 	if (result != expectedInside)
 		std::cout << " (FAILED: expected " << (expectedInside ? "inside" : "outside") << ")";
+	else
+		std::cout << " (PASSED: expected " << (expectedInside ? "inside" : "outside") << ")";
 	std::cout << std::endl;
 }
 

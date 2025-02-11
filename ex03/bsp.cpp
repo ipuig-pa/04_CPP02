@@ -6,7 +6,7 @@
 /*   By: ipuig-pa <ipuig-pa@student.42heilbronn.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/10 16:32:35 by ipuig-pa          #+#    #+#             */
-/*   Updated: 2025/02/11 10:44:02 by ipuig-pa         ###   ########.fr       */
+/*   Updated: 2025/02/11 12:35:19 by ipuig-pa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,15 +25,17 @@ Fixed	interpolate(Point const a, Point const b, Fixed const x)
 //check if the point falls at the same side of the line l1-l2 than the third vertex (v).
 bool	check_same_side(Point const l1, Point const l2, Point const v, Point const point)
 {
-	Fixed	edge_y;
+	Fixed	p_edge_y;
+	Fixed	v_edge_y;
 
-	edge_y = interpolate(l1, l2, point.getX());
-	if (v.getY() > edge_y)
+	p_edge_y = interpolate(l1, l2, point.getX());
+	v_edge_y = interpolate(l1, l2, v.getX());
+	if (v.getY() > v_edge_y)
 	{
-		if (point.getY() > edge_y)
+		if (point.getY() > p_edge_y)
 			return (true);
 	}
-	else if (point.getY() < edge_y)
+	else if (point.getY() < p_edge_y)
 		return (true);
 	return (false);
 }
