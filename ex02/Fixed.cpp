@@ -6,11 +6,9 @@
 /*   By: ipuig-pa <ipuig-pa@student.42heilbronn.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/21 12:59:52 by ipuig-pa          #+#    #+#             */
-/*   Updated: 2025/02/11 11:32:32 by ipuig-pa         ###   ########.fr       */
+/*   Updated: 2025/02/15 14:46:33 by ipuig-pa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-
-#include "Fixed.hpp"
 
 #include "Fixed.hpp"
 
@@ -63,7 +61,7 @@ void Fixed::setRawBits( int const raw )
 
 float Fixed::toFloat( void ) const
 {
-	return (static_cast<float>(this->_value / static_cast<float>(1 << _fract_bits)));
+	return (static_cast<float>(this->_value) / static_cast<float>(1 << _fract_bits));
 }
 
 int Fixed::toInt( void ) const

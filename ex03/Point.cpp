@@ -6,7 +6,7 @@
 /*   By: ipuig-pa <ipuig-pa@student.42heilbronn.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/10 16:16:20 by ipuig-pa          #+#    #+#             */
-/*   Updated: 2025/02/11 10:36:54 by ipuig-pa         ###   ########.fr       */
+/*   Updated: 2025/02/15 14:51:47 by ipuig-pa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,6 @@ Point::Point(const float x, const float y)
 Point::Point(const Point &other)
 	: _x(other._x), _y(other._y)
 {
-	*this = other;
 }
 // Since _x and _y are const, they cannot be modified after initialization
 // This operator exists only to fulfill Orthodox Canonical Form requirements
